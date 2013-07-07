@@ -152,7 +152,7 @@ class EJDA_Colors {
 	}
 
 	/**
-	 * Choose between two colros the one that provides the greatest contrast to a third color
+	 * Choose the color that provides the greatest contrast to a third color
 	 *
 	 * @TODO make this more generic, 2 params first is an array of colors
 	 *
