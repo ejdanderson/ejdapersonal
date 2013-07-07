@@ -195,6 +195,6 @@ class EJDA_Colors {
 	 * @return float luma value
 	 **/
 	function get_luma($red, $blue, $green) {
-		return (hexdec($red) * 299) + (hexdec($blue) * 587) + (hexdec($green) * 114) / 1000;
+		return (hexdec($red) * 299) + (hexdec($green) * 587) + (hexdec($blue) * 114) / 1000;
 	}
 }
