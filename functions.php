@@ -3,11 +3,13 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 // Maximize constrast in all text except for hover
-function ejda_css() {
+function ejda_colors() {
 	$ejda_colors = new EJDA_Colors();
-	$ejda_colors->add_filters();
+	if ($ejda_colors->are_colors_set()) {
+		$ejda_colors->add_filters();	
+	}
 }
-add_action('wp', 'ejda_css');
+add_action('wp', 'ejda_colors');
 
 // Provides better text color selection based on background color
 class EJDA_Colors {
@@ -19,11 +21,22 @@ class EJDA_Colors {
 			'light',
 			'lightest'
 		);
-		if ($colors = cf_colors_get_colors()) {
-			foreach ($this->color_types as $key => $type) {
-				$this->$type = $colors[$key];
+		if (function_exists('cf_colors_get_colors')) {
+			if ($colors = cf_colors_get_colors()) {
+				foreach ($this->color_types as $key => $type) {
+					$this->$type = $colors[$key];
+				}
 			}
 		}
+	}
+
+	function are_colors_set() {
+		foreach ($this->color_types as $type) {
+			if (!isset($this->$type)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	function add_filters() {
