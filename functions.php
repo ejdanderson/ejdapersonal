@@ -65,6 +65,7 @@ class EJDA_Colors {
 	}
 
 // Color selection filters
+// Naming is as such: color1_color2_backgroundColor
 // @TODO this is a bit tedious, might just want to replace the colors file...
 	function lightest_darkest_light($key) {
 		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->light);
