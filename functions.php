@@ -177,8 +177,8 @@ class EJDA_Colors {
 	 **/
 	function rgbify_color($hex_string) {
 		$hex_string = trim(str_replace('#', '', $hex_string));
-		if (strlen($hex_1) == 3) {
-			$hex_1 = $hex_1 + $hex_1;
+		if (strlen($hex_string) == 3) {
+			$hex_string = $hex_string + $hex_string;
 		}
 
 		if (preg_match('/^[a-fA-F0-9]{6}$/i', $hex_string)) {
