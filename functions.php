@@ -1,15 +1,16 @@
-<?php 
+<?php
 
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 // Maximize constrast in all text except for hover
 function ejda_css() {
-	$ejda_css = new EJDA_CSS_Colors();
-	$ejda_css->add_filters();
+	$ejda_colors = new EJDA_Colors();
+	$ejda_colors->add_filters();
 }
 add_action('wp', 'ejda_css');
 
 // Provides better text color selection based on background color
-class EJDA_CSS_Colors {
+class EJDA_Colors {
 	function __construct() {
 		$this->color_types = array(
 			'darkest',
