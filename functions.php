@@ -159,7 +159,7 @@ class EJDA_Colors {
 	 * @param string $hex_1 Potential color choice, hex format
 	 * @param string $hex_1 Potential color choice, hex format
 	 * @param string $from_color Color that the greatest contrast is calculated from
-	 * @return string|false hex value of the color chosen, false on failure
+	 * @return string hex value of the color chosen
 	 **/
 	function greatest_contrast($hex_1, $hex_2, $from_color) {
 		if ($this->luma_distance($hex_1, $from_color) > $this->luma_distance($hex_2, $from_color)) {
