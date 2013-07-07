@@ -105,11 +105,11 @@ class EJDA_Colors {
 
 	// Get the numerical distance between the luma of 2 hex colors
 	function luma_distance($hex_1, $hex_2) {
-		$rgb_1 = cffp_rgbify_color($hex_1);
-		$rgb_2 = cffp_rgbify_color($hex_2);
+		$rgb_1 = $this->rgbify_color($hex_1);
+		$rgb_2 = $this->rgbify_color($hex_2);
 		if ($rgb_1 && $rgb_2) {
-			$luma_1 = cffp_get_luma($rgb_1[0], $rgb_1[1], $rgb_1[2]);
-			$luma_2 = cffp_get_luma($rgb_2[0], $rgb_2[1], $rgb_2[2]);
+			$luma_1 = $this->get_luma($rgb_1[0], $rgb_1[1], $rgb_1[2]);
+			$luma_2 = $this->get_luma($rgb_2[0], $rgb_2[1], $rgb_2[2]);
 
 			return abs($luma_1 - $luma_2);
 		}
@@ -128,7 +128,7 @@ class EJDA_Colors {
 	 * @return string|false hex value of the color chosen, false on failure
 	 **/
 	function greatest_contrast($hex_1, $hex_2, $from_color) {
-		if (cffp_luma_distance($hex_1, $from_color) > cffp_luma_distance($hex_2, $from_color)) {
+		if ($this->luma_distance($hex_1, $from_color) > $this->luma_distance($hex_2, $from_color)) {
 			return $hex_1;
 		}
 		return $hex_2;
