@@ -68,7 +68,10 @@ class EJDA_Colors {
 // @TODO this is a bit tedious, might just want to replace the colors file...
 	function lightest_darkest_light($key) {
 		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->light);
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function not_lightest_darkest_medium($key) {
@@ -79,32 +82,50 @@ class EJDA_Colors {
 		else {
 			$color = $this->darkest;
 		}
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function lightest_darkest_meduim($key) {
 		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->medium);
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function lightest_darkest_dark($key) {
 		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->dark);
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function medium_dark_light($key) {
 		$color = $this->greatest_contrast($this->medium, $this->dark, $this->light);
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function dark_light_medium($key) {
 		$color = $this->greatest_contrast($this->dark, $this->light, $this->medium);
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function light_medium_dark($key) {
 		$color = $this->greatest_contrast($this->medium, $this->light, $this->dark);
-		return $this->color_key($color);
+		if ($color) {
+			return $this->color_key($color);
+		}
+		return $key;
 	}
 
 	function color_key($color) {
