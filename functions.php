@@ -68,7 +68,7 @@ class EJDA_Colors {
 // Naming is as such: color1_color2_backgroundColor
 // @TODO this is a bit tedious, might just want to replace the colors file...
 	function lightest_darkest_light($key) {
-		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->light);
+		$color = $this->greatest_contrast($this->lightest, $this->darkest, $this->light);
 		if ($color) {
 			return $this->color_key($color);
 		}
@@ -76,7 +76,7 @@ class EJDA_Colors {
 	}
 
 	function not_lightest_darkest_medium($key) {
-		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->medium);
+		$color = $this->greatest_contrast($this->lightest, $this->darkest, $this->medium);
 		if ($color == $this->darkest) {
 			$color = $this->lightest;
 		}
@@ -90,7 +90,7 @@ class EJDA_Colors {
 	}
 
 	function lightest_darkest_meduim($key) {
-		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->medium);
+		$color = $this->greatest_contrast($this->lightest, $this->darkest, $this->medium);
 		if ($color) {
 			return $this->color_key($color);
 		}
@@ -98,7 +98,7 @@ class EJDA_Colors {
 	}
 
 	function lightest_darkest_dark($key) {
-		$color = $this->greatest_contrast($this->darkest, $this->lightest, $this->dark);
+		$color = $this->greatest_contrast($this->lightest, $this->darkest, $this->dark);
 		if ($color) {
 			return $this->color_key($color);
 		}
@@ -122,7 +122,7 @@ class EJDA_Colors {
 	}
 
 	function light_medium_dark($key) {
-		$color = $this->greatest_contrast($this->medium, $this->light, $this->dark);
+		$color = $this->greatest_contrast($this->light, $this->medium, $this->dark);
 		if ($color) {
 			return $this->color_key($color);
 		}
@@ -145,7 +145,6 @@ class EJDA_Colors {
 		if ($rgb_1 && $rgb_2) {
 			$luma_1 = $this->get_luma($rgb_1[0], $rgb_1[1], $rgb_1[2]);
 			$luma_2 = $this->get_luma($rgb_2[0], $rgb_2[1], $rgb_2[2]);
-
 			return abs($luma_1 - $luma_2);
 		}
 
@@ -194,7 +193,7 @@ class EJDA_Colors {
 	 * see http://en.wikipedia.org/wiki/YIQ for value reference
 	 * @return float luma value
 	 **/
-	function get_luma($red, $blue, $green) {
-		return (hexdec($red) * 299) + (hexdec($green) * 587) + (hexdec($blue) * 114) / 1000;
+	function get_luma($red, $green, $blue) {
+		return (hexdec($red) * 0.299) + (hexdec($green) * 0.587) + (hexdec($blue) * 0.114);
 	}
 }
