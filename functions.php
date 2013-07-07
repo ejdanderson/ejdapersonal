@@ -5,7 +5,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 // Maximize constrast in all text except for hover
 function ejda_colors() {
 	$ejda_colors = new EJDA_Colors();
-	if ($ejda_colors->are_colors_set()) {
+	if ($ejda_colors->colors_are_set()) {
 		$ejda_colors->add_filters();	
 	}
 }
@@ -30,7 +30,7 @@ class EJDA_Colors {
 		}
 	}
 
-	function are_colors_set() {
+	function colors_are_set() {
 		foreach ($this->color_types as $type) {
 			if (!isset($this->$type)) {
 				return false;
