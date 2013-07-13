@@ -2,7 +2,7 @@
  * Theme Name: EJDA FavePersonal
  * Template: favepersonal
  * Theme URI: http://evanjdanderson.com/
- * Description: A child theme to FavePersonal. Provides 'smarter' though potentially inconsistant text color based on background colors.
+ * Description: A child theme to FavePersonal used on http://evanjdanderson.com/
  * Version: 1.0
  * Author: Evan Anderson
  * Author URI: http://evanjdanderson.com/
@@ -18,3 +18,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
  * **********************************************************************
  */
+
+.entry-content a {
+	text-decoration: underline;
+}
