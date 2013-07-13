@@ -1,0 +1,3 @@
+[submodule "plugins/wp-ejda-colors"]
+	path = plugins/wp-ejda-colors
+	url = git@github.com:kidfiction/wp-ejda-colors.git
